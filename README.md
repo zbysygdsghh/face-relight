@@ -64,9 +64,10 @@ the original image is used as the target image for training. All training data a
 data used to uniformly express the posterior constraints during training are CelebAMask-HQ and its mask data that 
 does not overlap with the training test data. 
 
-CelebA Datasets: https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html
-
-CelebAMask-HQ: https://github.com/switchablenorms/CelebAMask-HQ
+You can refer to the following links to download the [baidupan](https://pan.baidu.com/s/148vbPR5qiM4nVWC1Z44_gw?pwd=qi2d ) datasets  
+Or configure the data set yourself
+[CelebA Datasets](https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html)
+[CelebAMask-HQ](https://github.com/switchablenorms/CelebAMask-HQ)
 
 
 ### Environmental dependence
@@ -80,7 +81,7 @@ CelebAMask-HQ: https://github.com/switchablenorms/CelebAMask-HQ
 
 ### Prepare for datasets
 
-Download the CelebAMask-HQ and CelebA datasets, and divide them respectively into the `train_data` folder.
+Download the [baidupan](https://pan.baidu.com/s/148vbPR5qiM4nVWC1Z44_gw?pwd=qi2d) datasets, and put them in the root directory `face-relight` folder.
 The file structure is shown below:
 
 ```
@@ -89,7 +90,7 @@ The file structure is shown below:
 │   ├── 000013.jpg
 │   ├── 000013.jpg
 │   └── 000013.jpg
-└── backlit_face
+└── backlit_face_darkc
 │   ├── 000013.jpg
 │   ├── 000013.jpg
 │   └── 000013.jpg
@@ -114,9 +115,26 @@ The file structure is shown below:
 │   ├── 000013.jpg
 │   └── 000013.jpg
 
+/test_data
+├── backlit_face
+│   ├── 105780.jpg
+│   ├── 105786.jpg
+│   └── 105790.jpg
+└── backlit_face_darkc
+│   ├── 105780.jpg
+│   ├── 105786.jpg
+│   └── 105790.jpg
+└── target_face
+│   ├── 105780.jpg
+│   ├── 105786.jpg
+│   └── 105790.jpg
+└── target_face_darkc
+│   ├── 105780.jpg
+│   ├── 105786.jpg
+│   └── 105790.jpg
 ```
 
-train models
+### Train models
 
 ```python
 python train.py
@@ -125,19 +143,14 @@ python train.py
 
 ### Test Images
 
-The images to be tested and the corresponding dark channel 
-images are placed in  `test_image`. The file structure is shown below:
+The images to be tested are placed in  `test_image`. The file structure is shown below:
 
 ```
 /test_image
-├── image
-│   ├── 000018.jpg
-│   ├── 000018.jpg
-│   └── 000018.jpg
-└── image_dc
-│   ├── 000018.jpg
-│   ├── 000018.jpg
-│   └── 000018.jpg
+│── 000018.jpg
+│── 000019.jpg
+└── 000020.jpg
+
 ```
 
 Configure the trained `.pth` file path in test.py 
